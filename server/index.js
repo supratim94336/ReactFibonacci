@@ -58,7 +58,7 @@ app.post('/values', async(req, res) => {
     }
     // setting the key with value nothing yet and then
     // publish to insert the fibonacci of the index
-    redisClient.hset('values', index, 'Nothing yet!');
+    redisClient.hset('values', index, 0);
     redisPublisher.publish('insert', index);
     pgClient.query('INSERT INTO values(number) VALUES($1)', [index]);
     res.send({ working: true });
