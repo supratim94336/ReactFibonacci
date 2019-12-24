@@ -40,7 +40,7 @@ class Fib extends Component {
         for(let key in this.state.values){
             entries.push(
                 <div key={key}>
-                    For index { key } I caluclated {this.state.values[key]}
+                    For index { key } I calculated {this.state.values[key]}
                 </div>
             );
         }
@@ -54,8 +54,9 @@ class Fib extends Component {
                     <label>
                         Enter your Index:
                     </label>
-                    <input value={this.state.index}
-                    onChange={event => this.setState({ index: event.target.value})}
+                    <input 
+                    value={this.state.index}
+                    onChange={event => this.setState({ index: event.target.value })}
                     />
                     <button>Submit</button>
                 </form>
