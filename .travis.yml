@@ -4,10 +4,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t supratim94336/React-Fibonacci -f ./client/Dockerfile.dev ./client
+    - docker build -t supratim94336/react-fibonacci -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true supratim94336/React-Fibonacci npm test
+    - docker run -e CI=true supratim94336/react-fibonacci npm test
 
 after_success:
     - docker build -t supratim94336/multi-client ./client
