@@ -1,5 +1,6 @@
 language: generic
 sudo: required
+
 services:
     - docker
 
@@ -24,3 +25,17 @@ after_success:
     - docker push supratim94336/multi-nginx
     - docker push supratim94336/multi-server
     - docker push supratim94336/multi-worker
+
+    deloy:
+        edge: true
+        provider: elasticbeanstalk
+        region: us-west-2
+        app: multi-docker
+        env: MultiDocker-Env
+        bucket_name: elasticbeanstalk-us-west-2-306476627547
+        bucket_path: docker-multi
+        on:
+            branch: master
+        access_key_id: $AWS_ACCESS_KEY
+        secret_access_key: 
+            secure: $AWS_SECRET_KEY
